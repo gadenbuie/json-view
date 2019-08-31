@@ -37,12 +37,12 @@ function  createElement(type, config) {
  * @return {HTMLElement}
  */
 function createExpandedElement(node) {
-  const iElem = createElement('i');
+  const iElem = createElement('span');
 
   if (node.expanded) {
-    iElem.className = 'fas fa-caret-down';
+    iElem.className = 'caret caret-down';
   } else {
-    iElem.className = 'fas fa-caret-right';
+    iElem.className = 'caret caret-right';
   }
 
   const caretElem = createElement('div', {
@@ -155,13 +155,13 @@ function createNode() {
     depth: 0,
 
     setCaretIconRight() {
-      const icon = this.elem.querySelector('.fas');
-      icon.classList.replace('fa-caret-down', 'fa-caret-right');
+      const icon = this.elem.querySelector('.caret');
+      icon.classList.replace('caret-down', 'caret-right');
     },
 
     setCaretIconDown() {
-      const icon = this.elem.querySelector('.fas');
-      icon.classList.replace('fa-caret-right', 'fa-caret-down');
+      const icon = this.elem.querySelector('.caret');
+      icon.classList.replace('caret-right', 'caret-down');
     },
 
     hideChildren() {
@@ -321,7 +321,8 @@ window.jsonView = {
    * @param {String} targetElem
    */
   format: function(jsonData, targetElem) {
-    const parsedData = JSON.parse(jsonData);
+    let parsedData = jsonData;
+    if (typeof jsonData === 'string' || jsonData instanceof String) parsedData = JSON.parse(jsonData);
     const tree = createTree(parsedData);
     render(tree, targetElem);
   }

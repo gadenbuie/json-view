@@ -4,11 +4,15 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "cp src/jsonview.js dist/jsonview.js && terser src/jsonview.js --compress -o dist/jsonview.min.js",
+    "build:css": "cp src/jsonview.css dist/jsonview.css"
   },
   "author": "pavel grabovets",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "terser": "^4.2.1"
   }
 }

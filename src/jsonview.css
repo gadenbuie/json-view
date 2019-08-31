@@ -18,6 +18,14 @@ body {
 	cursor: pointer;
 }
 
+.caret-icon .caret-down::before {
+	content: "\25BE";
+}
+
+.caret-icon .caret-right::before {
+	content: "\25B8";
+}
+
 .empty-icon {
 	width: 18px;
 }
