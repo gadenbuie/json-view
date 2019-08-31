@@ -1,76 +1,68 @@
-body {
-	font-family: 'Open Sans';
-	font-size: 16px;
-	background-color: #fff;
-	color: #808080;
-	box-sizing: border-box;
-}
-
-.line {
+.jv__line {
 	margin: 4px 0;
 	display: flex;
 	justify-content: flex-start;
 }
 
-.caret-icon {
+.jv__caret-icon {
 	width: 18px;
 	text-align: center;
 	cursor: pointer;
 }
 
-.caret-icon .caret-down::before {
+.jv__caret-icon .jv__caret-down::before {
 	content: "\25BE";
 }
 
-.caret-icon .caret-right::before {
+.jv__caret-icon .jv__caret-right::before {
 	content: "\25B8";
 }
 
-.empty-icon {
+.jv__empty-icon {
 	width: 18px;
 }
 
-.json-type {
+.jv__json-type {
 	margin-right: 4px;
 	margin-left: 4px;
 }
 
-.json-key {
+.jv__json-key {
 	color: #444;
 	margin-right: 4px;
 	margin-left: 4px;
 }
 
-.json-index {
+.jv__json-index {
 	margin-right: 4px;
 	margin-left: 4px;
 }
 
-.json-separator {
+.jv__json-separator {
 
 }
 
-.json-value {
+.jv__json-value {
 	margin-left: 8px;
 }
 
-.json-number {
+.jv__json-number {
 	color: #f9ae58;
 }
 
-.json-boolean {
+.jv__json-boolean {
 	color: #ec5f66;
 }
 
-.json-string {
+.jv__json-string {
 	color: #86b25c;
 }
 
-.json-size {
+.jv__json-size {
 	margin-right: 4px;
 	margin-left: 4px;
 }
 
-.hide {
+.jv__hide {
 	display: none;
 }

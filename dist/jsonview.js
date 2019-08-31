@@ -40,13 +40,13 @@ function createExpandedElement(node) {
   const iElem = createElement('span');
 
   if (node.expanded) {
-    iElem.className = 'caret caret-down';
+    iElem.className = 'jv__caret jv__caret-down';
   } else {
-    iElem.className = 'caret caret-right';
+    iElem.className = 'jv__caret jv__caret-right';
   }
 
   const caretElem = createElement('div', {
-    className: 'caret-icon',
+    className: 'jv__caret-icon',
     children: [iElem],
   });
 
@@ -54,22 +54,22 @@ function createExpandedElement(node) {
   caretElem.addEventListener('click', handleClick);
 
   const indexElem = createElement('div', {
-    className: 'json-index',
+    className: 'jv__json-index',
     content: node.key,
   });
 
   const typeElem = createElement('div', {
-    className: 'json-type',
+    className: 'jv__json-type',
     content: node.type,
   });
 
   const keyElem = createElement('div', {
-    className: 'json-key',
+    className: 'jv__json-key',
     content: node.key,
   });
 
   const sizeElem = createElement('div', {
-    className: 'json-size'
+    className: 'jv__json-size'
   });
 
   if (node.type === 'array') {
@@ -88,7 +88,7 @@ function createExpandedElement(node) {
   }
 
   const lineElem = createElement('div', {
-    className: 'line',
+    className: 'jv__line',
     children: lineChildren
   });
 
@@ -106,28 +106,28 @@ function createExpandedElement(node) {
  */
 function createNotExpandedElement(node) {
   const caretElem = createElement('div', {
-    className: 'empty-icon',
+    className: 'jv__empty-icon',
   });
 
   const keyElem = createElement('div', {
-    className: 'json-key',
+    className: 'jv__json-key',
     content: node.key
   });
 
   const separatorElement = createElement('div', {
-    className: 'json-separator',
+    className: 'jv__json-separator',
     content: ':'
   });
 
-  const valueType = ' json-' + typeof node.value;
+  const valueType = ' jv__json-' + typeof node.value;
   const valueContent = String(node.value);
   const valueElement = createElement('div', {
-    className: 'json-value' + valueType,
+    className: 'jv__json-value' + valueType,
     content: valueContent
   });
 
   const lineElem = createElement('div', {
-    className: 'line',
+    className: 'jv__line',
     children: [caretElem, keyElem, separatorElement, valueElement]
   });
 
@@ -155,19 +155,19 @@ function createNode() {
     depth: 0,
 
     setCaretIconRight() {
-      const icon = this.elem.querySelector('.caret');
-      icon.classList.replace('caret-down', 'caret-right');
+      const icon = this.elem.querySelector('.jv__caret');
+      icon.classList.replace('jv__caret-down', 'jv__caret-right');
     },
 
     setCaretIconDown() {
-      const icon = this.elem.querySelector('.caret');
-      icon.classList.replace('caret-right', 'caret-down');
+      const icon = this.elem.querySelector('.jv__caret');
+      icon.classList.replace('jv__caret-right', 'jv__caret-down');
     },
 
     hideChildren() {
       if (this.children !== null) {
         this.children.forEach((item) => {
-          item.elem.classList.add('hide');
+          item.elem.classList.add('jv__hide');
           if (item.expanded) {
             item.hideChildren();
           }
@@ -178,7 +178,7 @@ function createNode() {
     showChildren() {
       if (this.children !== null) {
         this.children.forEach((item) => {
-          item.elem.classList.remove('hide');
+          item.elem.classList.remove('jv__hide');
           if (item.expanded) {
             item.showChildren();
           }
